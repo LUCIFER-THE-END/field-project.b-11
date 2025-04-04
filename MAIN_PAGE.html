@@ -73,35 +73,59 @@
             animation: moveObject linear infinite;
         }
 
-        .moving-object:nth-child(1) { top: 5%; left: 5%; animation-duration: 25s; }
-        .moving-object:nth-child(2) { top: 75%; right: 10%; animation-duration: 30s; }
-        .moving-object:nth-child(3) { bottom: 10%; left: 25%; animation-duration: 28s; }
-        .moving-object:nth-child(4) { top: 30%; right: 35%; animation-duration: 32s; width: 40px; height: 40px; }
-        moving-object:nth-child(5) { bottom: 20%; right: 5%; animation-duration: 22s; width: 70px; height: 70px; }
-        moving-object:nth-child(6) { top: 60%; left: 15%; animation-duration: 27s; width: 50px; height: 50px; }
-
-        @keyframes moveObject { 0% { transform: translate(0, 0); } 50% { transform: translate(80px, 80px); } 100% { transform: translate(0, 0); } }
-
-        .anime-animal {
-            position: absolute;
-            width: 50px; /* Adjust size as needed */
-            height: auto;
-            opacity: 0.7; /* Adjust transparency */
-            animation: moveAnimal linear infinite alternate;
+        .moving-object:nth-child(1) {
+            top: 5%;
+            left: 5%;
+            animation-duration: 25s;
         }
 
-        .anime-animal:nth-child(7) { top: 15%; right: 10%; animation-duration: 35s; }
-        .anime-animal:nth-child(8) { bottom: 25%; left: 10%; animation-duration: 40s; }
-        .anime-animal:nth-child(9) { top: 45%; left: 30%; animation-duration: 38s; }
+        .moving-object:nth-child(2) {
+            top: 75%;
+            right: 10%;
+            animation-duration: 30s;
+        }
 
-        @keyframes moveAnimal { 0% { transform: translateY(0px); } 100% { transform: translateY(20px); } }
+        .moving-object:nth-child(3) {
+            bottom: 10%;
+            left: 25%;
+            animation-duration: 28s;
+        }
+
+        .moving-object:nth-child(4) {
+            top: 30%;
+            right: 35%;
+            animation-duration: 32s;
+            width: 40px;
+            height: 40px;
+        }
+
+        moving-object:nth-child(5) {
+            bottom: 20%;
+            right: 5%;
+            animation-duration: 22s;
+            width: 70px;
+            height: 70px;
+        }
+
+        moving-object:nth-child(6) {
+            top: 60%;
+            left: 15%;
+            animation-duration: 27s;
+            width: 50px;
+            height: 50px;
+        }
+
+        @keyframes moveObject {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(80px, 80px); }
+            100% { transform: translate(0, 0); }
+        }
 
         @media (max-width: 600px) {
             h1 { font-size: 2.8em; }
             p { font-size: 1.1em; }
             button { padding: 15px 30px; font-size: 18px; }
             .moving-object { width: 40px; height: 40px; }
-            .anime-animal { width: 35px;}
         }
     </style>
 </head>
@@ -121,4 +145,20 @@
     <div class="moving-object"></div>
     <div class="moving-object"></div>
     <div class="moving-object"></div>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATLSURBVHhe7d3bbtNAEIbh/1/2Vq5iK0hQ0g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'scale(1.03) translateY(-5px)';
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+    </script>
+
+</body>
+</html>
