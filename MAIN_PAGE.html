@@ -1,38 +1,124 @@
-
-
-
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Welcome Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            animation: backgroundGradient 15s ease infinite;
+            overflow: hidden;
         }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 15px 20px;
+            padding: 18px 35px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            margin: 10px;
+            font-size: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background-color 0.4s;
+            letter-spacing: 1px;
         }
+
         button:hover {
             background-color: #45a049;
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .moving-object {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            animation: moveObject linear infinite;
+        }
+
+        .moving-object:nth-child(1) { top: 5%; left: 5%; animation-duration: 25s; }
+        .moving-object:nth-child(2) { top: 75%; right: 10%; animation-duration: 30s; }
+        .moving-object:nth-child(3) { bottom: 10%; left: 25%; animation-duration: 28s; }
+        .moving-object:nth-child(4) { top: 30%; right: 35%; animation-duration: 32s; width: 40px; height: 40px; }
+        moving-object:nth-child(5) { bottom: 20%; right: 5%; animation-duration: 22s; width: 70px; height: 70px; }
+        moving-object:nth-child(6) { top: 60%; left: 15%; animation-duration: 27s; width: 50px; height: 50px; }
+
+        @keyframes moveObject { 0% { transform: translate(0, 0); } 50% { transform: translate(80px, 80px); } 100% { transform: translate(0, 0); } }
+
+        .anime-animal {
+            position: absolute;
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            opacity: 0.7; /* Adjust transparency */
+            animation: moveAnimal linear infinite alternate;
+        }
+
+        .anime-animal:nth-child(7) { top: 15%; right: 10%; animation-duration: 35s; }
+        .anime-animal:nth-child(8) { bottom: 25%; left: 10%; animation-duration: 40s; }
+        .anime-animal:nth-child(9) { top: 45%; left: 30%; animation-duration: 38s; }
+
+        @keyframes moveAnimal { 0% { transform: translateY(0px); } 100% { transform: translateY(20px); } }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.8em; }
+            p { font-size: 1.1em; }
+            button { padding: 15px 30px; font-size: 18px; }
+            .moving-object { width: 40px; height: 40px; }
+            .anime-animal { width: 35px;}
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome to Our Website!</h1>
-    <p>Please choose an option below:</p>
+    <div class="container">
+        <h1>Welcome to Our Website!</h1>
+        <p>Explore exciting opportunities and connect with our community.</p>
 
-    <button onclick="window.location.href='index.html'">Register</button>
-    <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Register</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+    </div>
 
-</body>
-</html>
-
+    <div class="moving-object"></div>
+    <div class="moving-object"></div>
+    <div class="moving-object"></div>
+    <div class="moving-object"></div>
+    <div class="moving-object"></div>
+    <div class="moving-object"></div>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATLSURBVHhe7d3bbtNAEIbh/1/2Vq5iK0hQ0g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g000g
